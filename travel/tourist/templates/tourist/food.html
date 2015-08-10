@@ -1,0 +1,14 @@
+<h1>{{ tourist.name }}</h1>
+<table border="1">
+{% if latest_food_list %}
+    {% for food in latest_food_list %}
+    		<tr>
+    			<td>{{food.name }}</a></td>
+    			<td>{{food.address}}</td>
+    			<td>{{food.price }}</a></td> 			
+    		</tr>
+    {% endfor %}
+{% else %}
+    <p>No are available</p>
+{% endif %}
+</table>
