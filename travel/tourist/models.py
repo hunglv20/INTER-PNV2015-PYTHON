@@ -1,14 +1,27 @@
 from django.db import models
+from django import forms
 
 # Create your models here.
+
+class ImageUploadForm(forms.Form):
+    """Image upload form."""
+    image = forms.ImageField()
+
 class CommonInfo(models.Model):
 	name = models.CharField(max_length=200)
 	address = models.CharField(max_length=200)
 	price = models.FloatField(default=0)
-	# image = models.ImageField()
+        detail = models.CharField(max_length=500)
+        image = models.ImageField(upload_to="tourist/static/images")
+        class Meta:
+            verbose_name = "images"
+            verbose_name_plural = "images"
 
-	class Meta:
-        	abstract = True
+        def __unicode__(self):
+            return self.name
+
+    	class Meta:
+            	abstract = True
 
 class Food(CommonInfo):
 	quantity = models.IntegerField(default=0)
@@ -28,13 +41,3 @@ class Tourist(CommonInfo):
     hotel = models.ForeignKey(Hotel)
     food = models.ForeignKey(Food)
     means = models.CharField(max_length=200)
-
-
-# class Poll(models.Model):
-#     question = models.CharField(max_length=200)
-#     pub_date = models.DateTimeField('date published')
-
-# class Choice(models.Model):
-#     poll = models.ForeignKey(Poll)
-#     choice_text = models.CharField(max_length=200)
-#     votes = models.IntegerField(default=0)

@@ -2,11 +2,11 @@
 <html>
 <head>
 	<title>hung</title>
-	<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"> -->
 	{% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
 <!-- 	{% load staticfiles %} -->
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+
 </head>
 	<body>
 		<table class="table table-condensed">
@@ -16,7 +16,9 @@
 		    			<td>{{tourist.name }}</a></td>
 		    			<td>{{tourist.address}}</td>
 		    			<td>{{tourist.price }}</a></td>
-		    			<td>{{tourist.price }}</a></td>
+		    			<td>
+		    				<img src="{{tourist.image.url}}"/>
+		    			</td>
 		    			<td><a href="{% url 'tourist:detail' tourist.id %}"> food</a></td>
 		    		</tr>
 		    	{% endfor %}

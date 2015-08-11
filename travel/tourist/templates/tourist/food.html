@@ -1,14 +1,31 @@
-<h1>{{ tourist.name }}</h1>
-<table border="1">
-{% if latest_food_list %}
-    {% for food in latest_food_list %}
-    		<tr>
-    			<td>{{food.name }}</a></td>
-    			<td>{{food.address}}</td>
-    			<td>{{food.price }}</a></td> 			
-    		</tr>
-    {% endfor %}
-{% else %}
-    <p>No are available</p>
-{% endif %}
-</table>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
+<!-- 	{% load staticfiles %} -->
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+</head>
+<body>
+	<h1>{{ tourist.name }}</h1>
+	<table class="table table-condensed">
+	{% if latest_food_list %}
+	    {% for food in latest_food_list %}
+	    		<tr>
+	    			<td>{{food.name }}</a></td>
+	    			<td>{{food.address}}</td>
+	    			<td>{{food.price }}</a></td>
+	    			<td><img src="{{ food.image.url }}"/></td>
+	    		</tr>
+	    {% endfor %}
+	{% else %}
+	    <p>No are available</p>
+	{% endif %}
+	</table>
+</body>
+</html>
+
+
+
