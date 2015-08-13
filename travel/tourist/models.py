@@ -12,7 +12,7 @@ class CommonInfo(models.Model):
 	address = models.CharField(max_length=200)
 	price = models.FloatField(default=0)
         detail = models.CharField(max_length=500)
-        image = models.ImageField(upload_to="tourist/static/images")
+        image = models.ImageField(upload_to="tourist/images")
         class Meta:
             verbose_name = "images"
             verbose_name_plural = "images"

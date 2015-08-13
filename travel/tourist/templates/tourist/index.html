@@ -9,22 +9,45 @@
 
 </head>
 	<body>
-		<table class="table table-condensed">
-			{% if latest_tourist_list %}
+		<div class="container">
+			<table class="table table-condensed content-tb">
+			<thead>
+				<th>ID</th>
+				<th>Name</th>
+				<th>Adress</th>
+				<th>Price</th>
+				<th>Means</th>
+				<th>Detail</th>
+				<th>Images</th>
+				<th>Food</th>
+				<th>Hotel</th>
+			</thead>
+			<tbody>
+				{% if latest_tourist_list %}
 		   	 	{% for tourist in latest_tourist_list %}
 		    		<tr>
+		    			<td>{{tourist.id }}</a></td>
 		    			<td>{{tourist.name }}</a></td>
 		    			<td>{{tourist.address}}</td>
 		    			<td>{{tourist.price }}</a></td>
+		    			<td>{{tourist.means }}</a></td>
+		    			<td>{{tourist.detail }}</a></td>
 		    			<td>
 		    				<img src="{{tourist.image.url}}"/>
 		    			</td>
-		    			<td><a href="{% url 'tourist:detail' tourist.id %}"> food</a></td>
+		    			<td><a href="{% url 'tourist:food' tourist.id %}"> food</a></td>
+		    			<td><a href="{% url 'tourist:hotel' tourist.id %}"> hotel</a></td>
+		    			<td><form action="/delete.html">
+				        <input type="submit" value="Delete">
+				        </form></td>
 		    		</tr>
 		    	{% endfor %}
 			{% else %}
 			    <p>No are available</p>
 			{% endif %}
+			</tbody>
+			
 		</table>
+		</div>
 	</body>
 </html>
