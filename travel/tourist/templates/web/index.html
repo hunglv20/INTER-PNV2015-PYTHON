@@ -16,12 +16,12 @@
 			</h1>
 	    <ul class="follow_icon">
 	    
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon1.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon2.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon3.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon4.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon5.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon1.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon2.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon3.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon4.png' %}" alt="My image"/></a></li>
+			<li><a href="#"><img src="{% static 'tourist/images/follow_icon5.png' %}" alt="My image"/></a></li>
 		</ul>
 		 <div class="clear"></div>
 	</div>
@@ -55,7 +55,7 @@
 			   	{% for tourist in latest_tourist_list %}
 				<div class="col_1_of_3 span_1_of_3">
 					<div class="block_1">
-	                    <img class="img-top" src="{% static 'tourist/images/pic1.jpg' %}" alt=""/>
+	                    <img class="img-top" src="{{tourist.image.url}}" alt=""/>
 	                    <div class="tour">
 	                        <p class="txt_1">{{tourist.name }}</p>
 	                        <p class="txt_2">{{tourist.address}}</p>

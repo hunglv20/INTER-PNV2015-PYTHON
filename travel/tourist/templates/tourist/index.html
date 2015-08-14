@@ -3,7 +3,7 @@
 <head>
 	<title>hung</title>
 	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
 <!-- 	{% load staticfiles %} -->
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
 
@@ -33,7 +33,9 @@
 		    			<td>{{tourist.means }}</a></td>
 		    			<td>{{tourist.detail }}</a></td>
 		    			<td>
-		    				<img src="{{tourist.image.url}}"/>
+		    				<div class="content-img">
+		    					<img src="{{tourist.image.url}}" alt="My images"/>
+		    				</div>
 		    			</td>
 		    			<td><a href="{% url 'tourist:food' tourist.id %}"> food</a></td>
 		    			<td><a href="{% url 'tourist:hotel' tourist.id %}"> hotel</a></td>

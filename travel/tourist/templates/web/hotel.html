@@ -43,31 +43,31 @@
 			    <div class="clear"></div>
 			</div>
 	  </div>   
-  <div class="main">
-	<div class="wrap">
-		<div class="hotels">
-				<h3>Hotel</h3>
-				{% if latest_hotel_list %}
-					    {% for hotel in latest_hotel_list %}
-						<div class="inner-top">
-						<div class="grid_1_of_3 images_1_of_3">
-							  <img src="{% static 'tourist/images/hotel.jpg' %}" alt=""/>
-							 <div class="item-text">
-								 	<h4>{{hotel.name}}</h4>
-								  	<p>{{hotel.address}}</p>
-									<span class="price">${{food.price}}</span>
-									 <p>{{hotel.detail}}</p>
-									<div class="button"><span><a href="#">[More...]</a></span></div>
-								</div>
-						</div>
-						{% endfor %}
-					{% else %}
-					    <p>No are available</p>
-					{% endif %}
-				<div class="clear"></div>
-			</div>
-	    </div>
-	</div>
+  	<div class="main">
+		<div class="wrap">
+			<div class="hotels">
+					<h3>Hotel</h3>
+					{% if latest_hotel_list %}
+						    {% for hotel in latest_hotel_list %}
+							<div class="inner-top">
+							<div class="grid_1_of_3 images_1_of_3">
+								  <img src="{{hotel.image.url}}" alt=""/>
+								 <div class="item-text">
+									 	<h4>{{hotel.name}}</h4>
+									  	<p>{{hotel.address}}</p>
+										<span class="price">${{hotel.price}}</span>
+										 <p>{{hotel.detail}}</p>
+										<div class="button"><span><a href="#">[More...]</a></span></div>
+									</div>
+							</div>
+							{% endfor %}
+						{% else %}
+						    <p>No are available</p>
+						{% endif %}
+					<div class="clear"></div>
+				</div>
+		    </div>
+		</div>
 	</div>
 <div class="content-bot1">
  	    <div class="wrap">

@@ -3,7 +3,7 @@
 <head>
 	<title></title>
 	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
 </head>
 <body>
@@ -22,11 +22,16 @@
 					{% if latest_food_list %}
 					    {% for food in latest_food_list %}
 					    		<tr>
-					    			<td>{{food.name }}</a></td>
+					    			<td>{{food.id }}</td>
+					    			<td>{{food.name }}</td>
 					    			<td>{{food.address}}</td>
-					    			<td>{{food.price }}</a></td>
+					    			<td>{{food.price }}</td>
 					    			<td>{{food.quantity}}</td>
-					    			<td><img src="{{ food.image.url }}"/></td>
+					    			<td>
+					    				<div class="content-img">
+			    							<img src="{{food.image.url}} " alt="My images" />
+			    						</div>
+					    			</td>
 					    		</tr>
 					    {% endfor %}
 					{% else %}
@@ -37,7 +42,6 @@
 				<td><a href="{% url 'tourist:index' %}"> Back</a></td>
 			</tfoot>
 		</table>
-		<td><a href="{% url 'tourist:index' %}"> Back</a></td>
 		</div>
 	</body>
 </html>

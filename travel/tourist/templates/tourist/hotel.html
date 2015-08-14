@@ -3,7 +3,7 @@
 <head>
 	<title>food</title>
 	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
 <!-- 	{% load staticfiles %} -->
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
 </head>
@@ -24,12 +24,17 @@
 					{% if latest_hotel_list %}
 					    {% for hotel in latest_hotel_list %}
 					    		<tr>
+					    			<td>{{hotel.id }}</a></td>
 					    			<td>{{hotel.name }}</a></td>
 					    			<td>{{hotel.address}}</td>
 					    			<td>{{hotel.price }}</a></td>
 					    			<td>{{hotel.kindofroom}}</td>
 					    			<td>{{hotel.votes}}</td>
-					    			<td><img src="{{ hotel.image.url }}"/></td>
+					    			<td>
+						    			<div class="content-img">
+			    							<img src="{{hotel.image.url}} alt="My images""/>
+			    						</div>
+		    						</td>
 					    		</tr>
 					    {% endfor %}
 					{% else %}
