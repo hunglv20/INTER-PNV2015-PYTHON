@@ -6,22 +6,42 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
 <!-- 	{% load staticfiles %} -->
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+	<script type="text/javascript" src="{% static 'tourist/js/table.js' %}"></script>
 </head>
 <body>
-		<div class="container">
-			<table class="table table-condensed content-tb">
-			<thead>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Adress</th>
-				<th>Price</th>
-				<th>KindofRoom</th>
-				<th>Vote</th>
-				<th>Images</th>
-			</thead>
-			<tbody>
-				<table class="table table-condensed">
-					{% if latest_hotel_list %}
+	<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo">
+                	<a href="{% url 'tourist:home' %}"><img src="{% static 'tourist/images/logo.png' %}" alt="My image"/></a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'tourist:mefood' %}">FOOD</a></li>
+                     <li><a href="{% url 'tourist:mehotel' %}">HOTEL</a></li>
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+		<div id="wrapper-food">
+  			<h1>Manage Hotel in Da Nang City</h1>
+  
+			  <table id="keywords" cellspacing="0" cellpadding="0">
+			    <thead>
+			      <tr>
+			        	<th>ID</th>
+						<th>Name</th>
+						<th>Adress</th>
+						<th>Price</th>
+						<th>KindofRoom</th>
+						<th>Vote</th>
+						<th>Images</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			     	{% if latest_hotel_list %}
 					    {% for hotel in latest_hotel_list %}
 					    		<tr>
 					    			<td>{{hotel.id }}</a></td>
@@ -40,11 +60,12 @@
 					{% else %}
 					    <p>No are available</p>
 					{% endif %}
-			</tbody>
-			<tfoot>
+			    </tbody>
+			    <tfoot>
 				<td><a href="{% url 'tourist:index' %}"> Back</a></td>
 			</tfoot>
-		</table>
+			  </table>
+			  <button><a href="{% url 'tourist:tourist_new' %}">New</a></button>
 		</div>
 	</body>
 </html>

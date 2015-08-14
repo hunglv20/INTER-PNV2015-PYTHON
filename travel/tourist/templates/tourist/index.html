@@ -6,50 +6,71 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
 <!-- 	{% load staticfiles %} -->
 	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
-
+	<script type="text/javascript" src="{% static 'tourist/js/table.js' %}"></script>
 </head>
 	<body>
-		<div class="container">
-			<table class="table table-condensed content-tb">
-			<thead>
-				<th>ID</th>
-				<th>Name</th>
-				<th>Adress</th>
-				<th>Price</th>
-				<th>Means</th>
-				<th>Detail</th>
-				<th>Images</th>
-				<th>Food</th>
-				<th>Hotel</th>
-			</thead>
-			<tbody>
-				{% if latest_tourist_list %}
-		   	 	{% for tourist in latest_tourist_list %}
-		    		<tr>
-		    			<td>{{tourist.id }}</a></td>
-		    			<td>{{tourist.name }}</a></td>
-		    			<td>{{tourist.address}}</td>
-		    			<td>{{tourist.price }}</a></td>
-		    			<td>{{tourist.means }}</a></td>
-		    			<td>{{tourist.detail }}</a></td>
-		    			<td>
-		    				<div class="content-img">
-		    					<img src="{{tourist.image.url}}" alt="My images"/>
-		    				</div>
-		    			</td>
-		    			<td><a href="{% url 'tourist:food' tourist.id %}"> food</a></td>
-		    			<td><a href="{% url 'tourist:hotel' tourist.id %}"> hotel</a></td>
-		    			<td><form action="/delete.html">
-				        <input type="submit" value="Delete">
-				        </form></td>
-		    		</tr>
-		    	{% endfor %}
-			{% else %}
-			    <p>No are available</p>
-			{% endif %}
-			</tbody>
-			
-		</table>
+	<div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="logo">
+                	<a href="{% url 'tourist:home' %}"><img src="{% static 'tourist/images/logo.png' %}" alt="My image"/></a>
+                </div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="{% url 'tourist:mefood' %}">FOOD</a></li>
+                     <li><a href="{% url 'tourist:mehotel' %}">HOTEL</a></li>
+                </ul>
+            </div>
+           
+        </div>
+    </div>
+		<div id="wrapper">
+  			<h1>Manage Tourist in Da Nang City</h1>
+  
+			  <table id="keywords" cellspacing="0" cellpadding="0">
+			    <thead>
+			      <tr>
+			        	<th>ID</th>
+						<th>Name</th>
+						<th>Adress</th>
+						<th>Price</th>
+						<th>Means</th>
+						<th>Detail</th>
+						<th>Images</th>
+						<th>Food</th>
+						<th>Hotel</th>
+						<th>Upload</th>
+						<th>Delete</th>
+			      </tr>
+			    </thead>
+			    <tbody>
+			     	{% if latest_tourist_list %}
+					   	 	{% for tourist in latest_tourist_list %}
+					    		<tr>
+					    			<td>{{tourist.id }}</a></td>
+					    			<td>{{tourist.name }}</a></td>
+					    			<td>{{tourist.address}}</td>
+					    			<td>{{tourist.price }}</a></td>
+					    			<td>{{tourist.means }}</a></td>
+					    			<td>{{tourist.detail }}</a></td>
+					    			<td>
+					    				<div class="content-img">
+					    					<img src="{{tourist.image.url}}" alt="My images"/>
+					    				</div>
+					    			</td>
+					    			<td><a href="{% url 'tourist:food' tourist.id %}"> food</a></td>
+					    			<td><a href="{% url 'tourist:hotel' tourist.id %}"> hotel</a></td>
+					    			<td><button type="button"><a href="{% url 'tourist:tourist_edit' tourist.id %}">Edit</a></button></td>
+					    			<td><button type="button"><a href="{% url 'tourist:tourist_delete' tourist.id %}">Delete</a></button></td>
+					    		</tr>
+					    	{% endfor %}
+						{% else %}
+						    <p>No are available</p>
+						{% endif %}
+			    </tbody>
+			  </table>
+			  <button><a href="{% url 'tourist:tourist_new' %}">New</a></button>
 		</div>
-	</body>
+	</body> 
 </html>
