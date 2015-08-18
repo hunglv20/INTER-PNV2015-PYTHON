@@ -1,13 +1,46 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>From food</title>
+	<title>hung</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'tourist/admin.css' %}" />
+	<link rel="stylesheet" type="text/css" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
+	<script type="text/javascript" src="{% static 'tourist/js/table.js' %}"></script>
 </head>
-<body>
-	<form method='POST' action='{{ action_url }}' enctype='multipart/form-data'>
-	{% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-</form>
-</body>
+	<body>
+		<div class="navbar navbar-inverse navbar-fixed-top">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <div class="logo">
+	                	<a href="{% url 'tourist:index' %}"><img src="{% static 'tourist/images/logo.png' %}" alt="My image"/></a>
+	                </div>
+	            </div>
+	            <div class="navbar-collapse collapse">
+	                <ul class="nav navbar-nav navbar-right">
+	                    <li><a href="{% url 'tourist:mefood' %}">FOOD</a></li>
+	                    <li><a href="{% url 'tourist:mehotel' %}">HOTEL</a></li>
+	                </ul>
+	            </div>
+	           
+	        </div>
+	    </div>
+
+		<div class="wrapper">
+  			<h1>Manage Tourist in Da Nang City</h1>
+  
+			  <table class="keywords" cellspacing="0" cellpadding="0">
+			    <thead>  
+			    </thead>
+			    <tbody>
+					<form method='POST' action='{{ action_url }}' enctype='multipart/form-data'>
+						<div class="form-tourist">
+							{% csrf_token %}
+					    	{{ form.as_p }}
+						</div>
+				    <button type="submit" value="Submit" />Submit</button>
+			    </tbody>
+			  </table>
+			  <button><a href="{% url 'tourist:tourist_new' %}">New</a></button>
+		</div>
+	</body> 
 </html>

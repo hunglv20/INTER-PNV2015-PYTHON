@@ -14,6 +14,29 @@
 	height: 50px;
 }
 
+.wrapper label {
+	min-width: 75px;
+}
+
+.errorlist {
+  color: red;
+}
+
+input {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #555;
+  background-color: #fff;
+  background-image: none;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+
 /*-----------------------------------*/
 
 
@@ -87,7 +110,7 @@ h1 {
 
 
 /** page structure **/
-#wrapper {
+.wrapper {
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -98,7 +121,7 @@ h1 {
 	-webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
 }
 
-#wrapper-food {
+.wrapper-food {
 	margin-top: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -109,47 +132,47 @@ h1 {
   	-webkit-box-shadow: 2px 2px 3px -1px rgba(0,0,0,0.35);
 }
 
-#keywords {
+.keywords {
   margin: 0 auto;
   font-size: 1.2em;
   margin-bottom: 15px;
 }
 
 
-#keywords thead {
+.keywords thead {
   cursor: pointer;
   background: #c9dff0;
 }
-#keywords thead tr th { 
+.keywords thead tr th { 
   font-weight: bold;
   padding: 12px 30px;
   padding-left: 42px;
 }
-#keywords thead tr th span { 
+.keywords thead tr th span { 
   padding-right: 20px;
   background-repeat: no-repeat;
   background-position: 100% 100%;
 }
 
-#keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
+.keywords thead tr th.headerSortUp, #keywords thead tr th.headerSortDown {
   background: #acc8dd;
 }
 
-#keywords thead tr th.headerSortUp span {
+.keywords thead tr th.headerSortUp span {
   background-image: url('http://i.imgur.com/SP99ZPJ.png');
 }
-#keywords thead tr th.headerSortDown span {
+.keywords thead tr th.headerSortDown span {
   background-image: url('http://i.imgur.com/RkA9MBo.png');
 }
 
 
-#keywords tbody tr { 
+.keywords tbody tr { 
   color: #555;
 }
-#keywords tbody tr td {
+.keywords tbody tr td {
   text-align: center;
   padding: 15px 10px;
 }
-#keywords tbody tr td.lalign {
+.keywords tbody tr td.lalign {
   text-align: left;
 }

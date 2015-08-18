@@ -103,7 +103,7 @@ class IndexView(generic.ListView):
 #     return render(request, template_name, data)
 
 def tourist_create(request, template_name='tourist/index_form.html'):
-    form = TouristForm(request.POST, request.FILES or None)
+    form = TouristForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/tourist/index')
@@ -111,11 +111,19 @@ def tourist_create(request, template_name='tourist/index_form.html'):
 
 def tourist_update(request, pk, template_name='tourist/index_form.html'):
     tourist = get_object_or_404(Tourist, pk=pk)
-    form = TouristForm(request.POST, request.FILES, instance=tourist or None)
+    form = TouristForm(request.POST or None, request.FILES or None, instance=tourist)
     if form.is_valid():
         form.save()
         return HttpResponseRedirect('/tourist/index')
     return render(request, template_name, {'form':form})
+
+# def product_update(request, pk, template_name='laptop/product_form.html'):
+#     pro = get_object_or_404(Product, pk=pk)
+#     form = ProductForm(request.POST or None, instance=pro)
+#     if form.is_valid():
+#         form.save()
+#         return redirect('product_list')
+#     return render(request, template_name, {'form':form})
 
 def tourist_delete(request, pk, template_name='tourist/tourist_confirm_delete.html'):
     tourist = get_object_or_404(Tourist, pk=pk)    

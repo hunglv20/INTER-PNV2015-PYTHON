@@ -176,3 +176,23 @@ body{
 .follow_icon li :hover {
 	opacity: 0.8;
 }
+
+/*--Footer--*/
+.footer{
+	text-align:center;
+	background:#555;
+	padding:2%;
+}
+
+.copy p{
+	color:#fff;
+	font-size:13px;
+}
+
+.copy p a{
+	color:#fff;
+}
+
+.copy p a:hover{
+	text-decoration:underline;
+}

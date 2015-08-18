@@ -1,121 +1,122 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<title>Food</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	{% load staticfiles %}
-	<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
-	<link rel="stylesheet" type="text/css" href="{% static 'tourist/main.css' %}" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-</head>
-<body>
-   <div class="header-top">
-	<div class="wrap">
-			<h1 class="logo">
-				<a href="{% url 'tourist:home' %}"><img src="{% static 'tourist/images/logo.png' %}" alt="My image"/></a>
-			</h1>
-	    <ul class="follow_icon">
-	    
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon1.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon2.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon3.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon4.png' %}" alt="My image"/></a></li>
-			<li><a href="#" style="opacity: 1;"><img src="{% static 'tourist/images/follow_icon5.png' %}" alt="My image"/></a></li>
-		</ul>
-		 <div class="clear"></div>
-	</div>
-   </div>
-   <div class="header-bottom"> 
-		<div class="wrap"> 
-			  <div class="subMenu1 smint">
- 	           	 <div class="inner">
-					<ul>
-						<li class="active"> <a href="{% url 'tourist:home' %}" id="sTop" class="subNavBtn">Home</a> </li>
-  						<li><a href="{% url 'tourist:about' %}" id="s1" class="subNavBtn">About</a> </li>
-						<li><a href="{% url 'tourist:hotelD' %}" id="s2" class="subNavBtn">Hotel</a> </li>
-						<li><a href="{% url 'tourist:foodD' %}" id="s3" class="subNavBtn">Food</a> </li>
-						<li><a href="{% url 'tourist:contact' %}" id="s3" class="subNavBtn">Contact</a> </li>
-					    <div class="clear"></div>
-					 </ul>
-				  </div>
-				</div>
-			    <div class="clear"></div>
+	<head>
+	<title>Food</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		{% load staticfiles %}
+		<link rel="stylesheet" type="text/css" href="{% static 'tourist/style.css' %}" />
+		<link rel="stylesheet" type="text/css" href="{% static 'tourist/main.css' %}" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	</head>
+	<body>
+	   	<div class="header-top">
+			<div class="wrap">
+				<h1 class="logo">
+					<a href="{% url 'tourist:home' %}"><img src="{% static 'tourist/images/logo.png' %}" alt="My image"/></a>
+				</h1>
+			    <ul class="follow_icon">
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon.png' %}" alt="My image"/></a></li>
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon1.png' %}" alt="My image"/></a></li>
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon2.png' %}" alt="My image"/></a></li>
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon3.png' %}" alt="My image"/></a></li>
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon4.png' %}" alt="My image"/></a></li>
+					<li><a href="#"><img src="{% static 'tourist/images/follow_icon5.png' %}" alt="My image"/></a></li>
+				</ul>
+				<div class="clear"></div>
 			</div>
-	  </div>   
-  	<div class="main">
-		<div class="wrap">
-			<div class="hotels">
+	   	</div>
+	   	<div class="header-bottom"> 
+			<div class="wrap"> 
+				<div class="subMenu1 smint">
+	 	           	<div class="inner">
+						<ul>
+							<li class="active"> <a href="{% url 'tourist:home' %}" id="sTop" class="subNavBtn">Home</a> </li>
+	  						<li><a href="{% url 'tourist:about' %}" id="s1" class="subNavBtn">About</a> </li>
+							<li><a href="{% url 'tourist:hotelD' %}" id="s2" class="subNavBtn">Hotel</a> </li>
+							<li><a href="{% url 'tourist:foodD' %}" id="s3" class="subNavBtn">Food</a> </li>
+							<li><a href="{% url 'tourist:contact' %}" id="s3" class="subNavBtn">Contact</a> </li>
+						    <div class="clear"></div>
+						</ul>
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>   
+	  	<div class="main">
+			<div class="wrap">
+				<div class="hotels">
 					<h3>Hotel</h3>
 					{% if latest_hotel_list %}
-						    {% for hotel in latest_hotel_list %}
-							<div class="inner-top">
-							<div class="grid_1_of_3 images_1_of_3">
-								  <img src="{{hotel.image.url}}" alt=""/>
-								 <div class="item-text">
-									 	<h4>{{hotel.name}}</h4>
-									  	<p>{{hotel.address}}</p>
-										<span class="price">${{hotel.price}}</span>
-										 <p>{{hotel.detail}}</p>
-										<div class="button"><span><a href="#">[More...]</a></span></div>
+							    {% for hotel in latest_hotel_list %}
+								<div class="inner-top">
+								<div class="grid_1_of_3 images_1_of_3">
+									  <img src="{{hotel.image.url}}" alt=""/>
+									 	<div class="item-text">
+										 	<h4>{{hotel.name}}</h4>
+										  	<p>{{hotel.address}}</p>
+											<span class="price">${{hotel.price}}</span>
+											 <p>{{hotel.detail}}</p>
+											<div class="button"><span><a href="#">[More...]</a></span></div>
+										</div>
 									</div>
-							</div>
-							{% endfor %}
-						{% else %}
-						    <p>No are available</p>
-						{% endif %}
-					<div class="clear"></div>
-				</div>
-		    </div>
+								</div>
+								{% endfor %}
+							{% else %}
+							<p>No are available</p>
+					{% endif %}
+						<div class="clear"></div>
+					</div>
+			    </div>
+			</div>
 		</div>
-	</div>
-<div class="content-bot1">
- 	    <div class="wrap">
+		<div class="content-bot1">
+	 	    <div class="wrap">
 				<div class="col_1_of_4 span_1_of_4">
 					<h3>Destinations:</h3>
 					<div class="world">
-                       <span></span>
-                     </div>
-				</div>
+	                    <span></span>
+	                </div>
+					</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<img src="{% static 'tourist/images/thuanphuoc.jpg' %}" alt=""/>
 					<figcaption>
 						<div class="col-1">
-                              <a href="#">Thuan Phuoc Bridge</a>
-                              <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
-                         </div>
-                         <div class="price-1"><strong>$599</strong></div>
-                    </figcaption>
+	                        <a href="#">Thuan Phuoc Bridge</a>
+	                        <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
+	                    </div>
+	                    <div class="price-1"><strong>$599</strong></div>
+	                    </figcaption>
 				</div>
 				<div class="col_1_of_4 span_1_of_4">
 					<img src="{% static 'tourist/images/songhan.jpg' %}" alt=""/>
 					<figcaption>
 						<div class="col-1">
-                              <a href="#">Han River Bridge</a>
-                              <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
-                        </div>
-                        <div class="price-1"><strong>$599</strong></div>
-                    </figcaption>
+	                        <a href="#">Han River Bridge</a>
+	                        <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
+	                    </div>
+	                    <div class="price-1"><strong>$599</strong></div>
+	                </figcaption>
 				</div>
-				<div class="col_1_of_4 span_1_of_4">
-					<img src="{% static 'tourist/images/caurong.jpg' %}" alt=""/>
-					<figcaption>
+					<div class="col_1_of_4 span_1_of_4">
+						<img src="{% static 'tourist/images/caurong.jpg' %}" alt=""/>
+						<figcaption>
 							<div class="col-1">
-                                 <a href="#">Dragon bridge</a>
-                                 <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
-                            </div>
-                           <div class="price-1"><strong>$599</strong></div>
-                    </figcaption>
-				</div>
-				<div class="clear"></div>
-		   </div>
-	</div>
-<div class="footer">
- 	<div class="wrap">
- 		<div class="copy">
-			<p> © 2015 All rights Reserved | Design by Hung Save</p>
+	                                <a href="#">Dragon bridge</a>
+	                                <div class="para">vallis euismod Vestibulum ante ipsum fau cibus.</div>
+	                        </div>
+	                        <div class="price-1"><strong>$599</strong></div>
+	                    </figcaption>
+					</div>
+					<div class="clear"></div>
+			   </div>
+			</div>
 		</div>
- 	</div>
- </div>
-</body>
+	<div class="footer">
+	 	<div class="wrap">
+	 		<div class="copy">
+				<p> © 2015 All rights Reserved | Design by Hung Save</p>
+			</div>
+	 	</div>
+	 </div>
+	</body>
 </html>
