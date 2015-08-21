@@ -75,7 +75,7 @@ class DetailViewD(generic.ListView):
     def get_queryset(self):
         return Tourist.objects.order_by('-id')[:3]
 
-########################################################
+#######################################################
 
 from django.shortcuts import render, redirect, get_object_or_404
 from django.forms import ModelForm
